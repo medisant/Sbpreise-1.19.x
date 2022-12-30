@@ -1,7 +1,12 @@
 {
   "sbpreise.lore.price": "§7price: §a%s-%s",
+  "sbpreise.lore.item": "§7item: §a%s",
   "sbpreise.lore.last_changed": "§7last changed: §e%s",
   "sbpreise.lore.credits": "§7data provided by §asbpreise.de",
   "text.autoconfig.sbpreise.title": "sbpreise Config",
-  "text.autoconfig.sbpreise.option.api_url": "api url"
+  "text.autoconfig.sbpreise.option.api_url": "api url",
+  "text.gui.button.request_change": "request price change",
+  "text.gui.button.back": "back",
+  "text.gui.title.request_change": "request price change - %s",
+  "key.sbpreise.open_gui": "open gui"
 }

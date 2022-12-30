@@ -17,6 +17,12 @@ repositories {
     // cloth config
     maven { url "https://maven.shedaniel.me/" }
 
+    // Lib GUI
+    maven {
+        name = "CottonMC"
+        url = "https://server.bbkr.space/artifactory/libs-release"
+    }
+
 }
 
 dependencies {
@@ -35,6 +41,9 @@ dependencies {
     // mod menu
     modCompileOnly "com.terraformersmc:modmenu:${mod_menu_version}"
     modRuntimeOnly "com.terraformersmc:modmenu:${mod_menu_version}"
+
+    //LibGUI
+    modImplementation include("io.github.cottonmc:LibGui:6.0.1+1.19")
 
     // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"

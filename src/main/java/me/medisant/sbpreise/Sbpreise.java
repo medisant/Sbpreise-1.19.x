@@ -1,6 +1,6 @@
 package me.medisant.sbpreise;
 
-import me.medisant.sbpreise.api.DataProvider;
+import me.medisant.sbpreise.api.ApiInteraction;
 import me.medisant.sbpreise.api.ItemStatistics;
 import me.medisant.sbpreise.config.ModConfig;
 import net.fabricmc.api.ModInitializer;
@@ -18,6 +18,6 @@ public class Sbpreise implements ModInitializer {
     }
 
     private void initializeCache() {
-        cache = new DataProvider().getItemStatistics(true);
+        cache = new ApiInteraction().getItemStatistics(true);
     }
 }

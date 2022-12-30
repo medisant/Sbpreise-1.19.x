@@ -1,6 +1,6 @@
 package me.medisant.sbpreise.mixin;
 
-import me.medisant.sbpreise.api.DataProvider;
+import me.medisant.sbpreise.api.ApiInteraction;
 import me.medisant.sbpreise.api.ItemStatistics;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
@@ -37,10 +37,11 @@ public abstract class MixinItemStack {
 
                 String itemName = this.getName().getString();
                 String id = this.getItem().toString();
-                ItemStatistics itemStatistics = new DataProvider().getItemStatistics(id, itemName);
+                ItemStatistics itemStatistics = new ApiInteraction().getItemStatistics(id, itemName);
                 if (itemStatistics != null) {
                     DecimalFormat decimalFormat = new DecimalFormat("#,###,###,##0.00");
                     list.add(Text.literal(I18n.translate("sbpreise.lore.price", decimalFormat.format(itemStatistics.getPrice_min()), decimalFormat.format(itemStatistics.getPrice_max()))));
+                    list.add(Text.literal(I18n.translate("sbpreise.lore.item", itemStatistics.getFriendly_name())));
                     if (itemStatistics.getLastchangedate() != 0) {
                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy").withZone(ZoneId.systemDefault());
                         String lastChanged = formatter.format(Instant.ofEpochMilli(System.currentTimeMillis() - itemStatistics.getLastchangedate()));

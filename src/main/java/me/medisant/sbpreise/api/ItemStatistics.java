@@ -15,6 +15,7 @@ public class ItemStatistics {
     private double price_max;
     private long lastchangedate;
     private String category;
+    private int sb_id;
 
     public static ItemStatistics ERROR = new ItemStatistics(
             "error",
@@ -22,5 +23,6 @@ public class ItemStatistics {
             0.0,
             0.0,
             0,
-            "error");
+            "error",
+            0);
 }

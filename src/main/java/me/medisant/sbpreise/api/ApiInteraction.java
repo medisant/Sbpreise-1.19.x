@@ -10,8 +10,9 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
-public class DataProvider {
+public class ApiInteraction {
 
     public List<ItemStatistics> getItemStatistics(boolean ignoreCache) {
         if (ignoreCache || Sbpreise.cache == null || Sbpreise.cache.size() == 0) {
@@ -21,6 +22,7 @@ public class DataProvider {
                 URL url = new URL(ModConfig.INSTANCE.api_url);
                 InputStream input = url.openStream();
                 String json = new String(input.readAllBytes());
+                input.close();
 
                 //parsing the data to a list of ItemStatistics
                 return new Gson().fromJson(json, new TypeToken<List<ItemStatistics>>() {}.getType());
@@ -54,6 +56,23 @@ public class DataProvider {
             if (itemStatistics.getFriendly_name().equalsIgnoreCase(friendly_name)) return itemStatistics;
         }
         return null;
+    }
+
+    public String requestPriceChange(int id, double price_min, double price_max) {
+        try {
+            String urlString = "https://sbpreise.de/api/insert.php?id=" + id + "&price_min=" + price_min + "&price_max=" + price_max;
+            //reading the raw json data from the api
+            URL url = new URL(urlString);
+            InputStream input = url.openStream();
+            String json = new String(input.readAllBytes());
+            Map<String, Object> result = new Gson().fromJson(json, new TypeToken<Map<String, Object>>() {}.getType());
+            input.close();
+            if (result.containsKey("error")) return (String) result.get("error");
+            if (result.containsKey("success")) return (String) result.get("success");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
 }
