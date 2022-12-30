@@ -1,0 +1,7 @@
+{
+  "sbpreise.lore.price": "§7Preis: §a%s-%s",
+  "sbpreise.lore.last_changed": "§7Zuletzt geändert: §e%s",
+  "sbpreise.lore.credits": "§7bereitgestellt von §asbpreise.de",
+  "text.autoconfig.sbpreise.title": "sbpreise Konfigurationen",
+  "text.autoconfig.sbpreise.option.api_url": "api url"
+}

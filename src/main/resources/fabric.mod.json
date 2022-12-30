@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "sbpreise",
+  "version": "${version}",
+  "name": "sbpreise",
+  "description": "A mod to show the average price of most items by using the provided data from sbpreise.de.",
+  "authors": [
+    "medisant",
+    "Drummerschlumpf"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/sbpreise/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "me.medisant.sbpreise.client.SbpreiseClient"
+    ],
+    "main": [
+      "me.medisant.sbpreise.Sbpreise"
+    ],
+    "modmenu": [
+      "me.medisant.sbpreise.config.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "sbpreise.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.8",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}
