@@ -5,6 +5,8 @@
   "sbpreise.lore.credits": "§7data provided by §asbpreise.de",
   "text.autoconfig.sbpreise.title": "sbpreise Config",
   "text.autoconfig.sbpreise.option.api_url": "api url",
+  "text.autoconfig.sbpreise.option.widthDivisor": "defines the width of the gui (the bigger, the smaller the gui)",
+  "text.autoconfig.sbpreise.option.heigthDivisor": "defines the heigth of the gui (the bigger, the smaller the gui)",
   "text.gui.button.request_change": "request price change",
   "text.gui.button.back": "back",
   "text.gui.title.request_change": "request price change - %s",

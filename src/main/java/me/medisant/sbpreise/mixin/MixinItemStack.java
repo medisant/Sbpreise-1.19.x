@@ -24,11 +24,14 @@ import java.util.List;
 @Mixin(value = ItemStack.class, priority = 500)
 public abstract class MixinItemStack {
 
-    @Shadow public abstract boolean isEmpty();
+    @Shadow
+    public abstract boolean isEmpty();
 
-    @Shadow public abstract Item getItem();
+    @Shadow
+    public abstract Item getItem();
 
-    @Shadow public abstract Text getName();
+    @Shadow
+    public abstract Text getName();
 
     @Inject(method = "getTooltip", at = @At(value = "RETURN"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void getToolTip(PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir, List<Text> list) {
@@ -58,7 +61,7 @@ public abstract class MixinItemStack {
                 if (item == null) {
                     System.out.println("item is null");
                 } else {
-                    System.out.println("item is "+this.getItem().getTranslationKey());
+                    System.out.println("item is " + this.getItem().getTranslationKey());
                 }
             } catch (NullPointerException ignored) {
 

@@ -5,6 +5,8 @@
   "sbpreise.lore.credits": "§7bereitgestellt von §asbpreise.de",
   "text.autoconfig.sbpreise.title": "sbpreise Konfigurationen",
   "text.autoconfig.sbpreise.option.api_url": "api url",
+  "text.autoconfig.sbpreise.option.widthDivisor": "GUI-Breite definieren (je größer, desto kleiner wird das GUI)",
+  "text.autoconfig.sbpreise.option.heigthDivisor": "GUI-Höhe definieren (je größer, desto kleiner wird das GUI)",
   "text.gui.button.request_change": "Preis vorschlagen",
   "text.gui.button.back": "Zurück",
   "text.gui.title.request_change": "Preis vorschlagen - %s",

@@ -13,6 +13,8 @@ public class ModConfig implements ConfigData {
     public static ModConfig INSTANCE;
 
     public String api_url = "https://sbpreise.de/api/all.php";
+    public double widthDivisor = 67d;
+    public double heigthDivisor = 67d;
 
     public static void init() {
         AutoConfig.register(ModConfig.class, GsonConfigSerializer::new);
