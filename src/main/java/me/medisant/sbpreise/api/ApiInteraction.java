@@ -25,7 +25,8 @@ public class ApiInteraction {
                 input.close();
 
                 //parsing the data to a list of ItemStatistics
-                return new Gson().fromJson(json, new TypeToken<List<ItemStatistics>>() {}.getType());
+                return new Gson().fromJson(json, new TypeToken<List<ItemStatistics>>() {
+                }.getType());
             } catch (IOException e) {
                 e.printStackTrace();
                 return Collections.emptyList();
@@ -38,21 +39,22 @@ public class ApiInteraction {
         if (id.equalsIgnoreCase("enchanted_book")) return null;
 
         ItemStatistics itemStatistics = getItemStatisticsFromName(name); //first trying to get the stats using the name of the item
-        if (itemStatistics == null) itemStatistics = getItemStatisticsFromId(id); //if this does not work, try using the id
+        if (itemStatistics == null)
+            itemStatistics = getItemStatisticsFromId(id); //if this does not work, try using the id
         //if (itemStatistics == null) return ItemStatistics.ERROR; //returning an error if there is no result
 
         return itemStatistics;
     }
 
     public ItemStatistics getItemStatisticsFromId(String minecraft_name) {
-        for (ItemStatistics itemStatistics: getItemStatistics(false)) {
+        for (ItemStatistics itemStatistics : getItemStatistics(false)) {
             if (itemStatistics.getMinecraft_name().equalsIgnoreCase(minecraft_name)) return itemStatistics;
         }
         return null;
     }
 
     public ItemStatistics getItemStatisticsFromName(String friendly_name) {
-        for (ItemStatistics itemStatistics: getItemStatistics(false)) {
+        for (ItemStatistics itemStatistics : getItemStatistics(false)) {
             if (itemStatistics.getFriendly_name().equalsIgnoreCase(friendly_name)) return itemStatistics;
         }
         return null;
@@ -65,7 +67,8 @@ public class ApiInteraction {
             URL url = new URL(urlString);
             InputStream input = url.openStream();
             String json = new String(input.readAllBytes());
-            Map<String, Object> result = new Gson().fromJson(json, new TypeToken<Map<String, Object>>() {}.getType());
+            Map<String, Object> result = new Gson().fromJson(json, new TypeToken<Map<String, Object>>() {
+            }.getType());
             input.close();
             if (result.containsKey("error")) return (String) result.get("error");
             if (result.containsKey("success")) return (String) result.get("success");

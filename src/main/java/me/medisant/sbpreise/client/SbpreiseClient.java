@@ -12,8 +12,6 @@ import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
 
-import java.io.IOException;
-
 @Environment(EnvType.CLIENT)
 public class SbpreiseClient implements ClientModInitializer {
     @Override
@@ -25,7 +23,7 @@ public class SbpreiseClient implements ClientModInitializer {
         KeyBinding openGuiKeybinding = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.sbpreise.open_gui", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_J, "Sbpreise"));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (openGuiKeybinding.wasPressed()) {
-                MinecraftClient.getInstance().setScreen(new GuiScreen(new MainGui()));
+                MinecraftClient.getInstance().setScreen(new GuiScreen(new MainGui(0)));
             }
         });
     }

@@ -9,14 +9,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ItemStatistics {
 
-    private String minecraft_name;
-    private String friendly_name;
-    private double price_min;
-    private double price_max;
-    private long lastchangedate;
-    private String category;
-    private int sb_id;
-
     public static ItemStatistics ERROR = new ItemStatistics(
             "error",
             "error",
@@ -25,4 +17,11 @@ public class ItemStatistics {
             0,
             "error",
             0);
+    private String minecraft_name;
+    private String friendly_name;
+    private double price_min;
+    private double price_max;
+    private long lastchangedate;
+    private String category;
+    private int sb_id;
 }
