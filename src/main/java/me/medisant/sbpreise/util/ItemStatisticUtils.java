@@ -7,6 +7,9 @@ import java.util.*;
 
 public class ItemStatisticUtils {
 
+    //get the itemStatistics fom the ApiInteraction
+    //format it as a map (key = category, value = list of itemStatistics)
+    //sort the itemStatistics alphabetically
     public static Map<String, List<ItemStatistics>> getItemStatisticsInCategories() {
         Map<String, List<ItemStatistics>> unsortedOutputMap = new HashMap<>();
         for (ItemStatistics itemStatistics : new ApiInteraction().getItemStatistics(false)) {

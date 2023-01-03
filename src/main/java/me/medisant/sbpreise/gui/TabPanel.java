@@ -12,6 +12,7 @@ import net.minecraft.text.Text;
 import java.util.ArrayList;
 import java.util.List;
 
+//a panel with tabs (buttons) which show a panel when clicked, looks fancier than WTabPanel and is fullscreen
 @Getter
 @Setter
 public class TabPanel extends WGridPanel {
@@ -41,6 +42,7 @@ public class TabPanel extends WGridPanel {
         this.add(headerPanel, 0, 0, GuiUtils.getWidth(), 1);
     }
 
+    //select a tab to show (can only be used once, to reset you have to open the gui again)
     public void setTab(int tab) {
         try {
             this.add(tabs.get(tab).panel, 0, 2, GuiUtils.getWidth(), GuiUtils.getHeigth());

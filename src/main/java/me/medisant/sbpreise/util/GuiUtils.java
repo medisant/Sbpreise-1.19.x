@@ -3,6 +3,7 @@ package me.medisant.sbpreise.util;
 import me.medisant.sbpreise.config.ModConfig;
 import net.minecraft.client.MinecraftClient;
 
+//just an util to get the gui size depending on the settings set in the config
 public class GuiUtils {
 
     public static int getWidth() {

@@ -13,10 +13,10 @@ public class ModConfig implements ConfigData {
     public static ModConfig INSTANCE;
 
     public String api_url = "https://sbpreise.de/api/all.php";
-    public double widthDivisor = 67d;
-    public double heigthDivisor = 67d;
-    public int absoluteWidth = 38;
-    public int absoluteHeigth = 21;
+    public double widthDivisor = 67d; //only active if useAbsolutGuiSize = false
+    public double heigthDivisor = 67d; //only active if useAbsolutGuiSize = false
+    public int absoluteWidth = 38; //only active if useAbsolutGuiSize = true
+    public int absoluteHeigth = 21; //only active if useAbsolutGuiSize = true
     public boolean useAbsoluteGuiSize = false;
 
     public static void init() {

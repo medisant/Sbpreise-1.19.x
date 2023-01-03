@@ -19,11 +19,12 @@ public class SbpreiseClient implements ClientModInitializer {
         registerKeyBindings();
     }
 
+    //register the keybindings
     private void registerKeyBindings() {
         KeyBinding openGuiKeybinding = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.sbpreise.open_gui", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_J, "Sbpreise"));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (openGuiKeybinding.wasPressed()) {
-                MinecraftClient.getInstance().setScreen(new GuiScreen(new MainGui(0)));
+                MinecraftClient.getInstance().setScreen(new GuiScreen(new MainGui(0))); //open the main gui
             }
         });
     }

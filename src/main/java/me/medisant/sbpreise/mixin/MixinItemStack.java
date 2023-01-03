@@ -36,16 +36,16 @@ public abstract class MixinItemStack {
     @Inject(method = "getTooltip", at = @At(value = "RETURN"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void getToolTip(PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir, List<Text> list) {
         try {
-            if (!this.isEmpty()) {
+            if (!this.isEmpty()) { //checks if the itemStack is an item
 
-                String itemName = this.getName().getString();
-                String id = this.getItem().toString();
-                ItemStatistics itemStatistics = new ApiInteraction().getItemStatistics(id, itemName);
-                if (itemStatistics != null) {
+                String itemName = this.getName().getString(); //name of the item
+                String id = this.getItem().toString(); //id of the item
+                ItemStatistics itemStatistics = new ApiInteraction().getItemStatistics(id, itemName); //try to get the itemStatistics of the item, returns null if not present
+                if (itemStatistics != null) { //if the itemStatistics are present...
                     DecimalFormat decimalFormat = new DecimalFormat("#,###,###,##0.00");
                     list.add(Text.literal(I18n.translate("sbpreise.lore.price", decimalFormat.format(itemStatistics.getPrice_min()), decimalFormat.format(itemStatistics.getPrice_max()))));
                     list.add(Text.literal(I18n.translate("sbpreise.lore.item", itemStatistics.getFriendly_name())));
-                    if (itemStatistics.getLastchangedate() != 0) {
+                    if (itemStatistics.getLastchangedate() != 0) { //if a last changed date was provided by the api, add it
                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy").withZone(ZoneId.systemDefault());
                         String lastChanged = formatter.format(Instant.ofEpochMilli(System.currentTimeMillis() - itemStatistics.getLastchangedate()));
                         list.add(Text.literal(I18n.translate("sbpreise.lore.last_changed", lastChanged)));

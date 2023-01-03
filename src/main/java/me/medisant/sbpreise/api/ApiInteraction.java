@@ -14,6 +14,7 @@ import java.util.Map;
 
 public class ApiInteraction {
 
+    //List of all itemStatistics provided by the api
     public List<ItemStatistics> getItemStatistics(boolean ignoreCache) {
         if (ignoreCache || Sbpreise.cache == null || Sbpreise.cache.size() == 0) {
 
@@ -35,6 +36,7 @@ public class ApiInteraction {
         } else return Sbpreise.cache; //returning the cache
     }
 
+    //try to get a certain itemStatistics filtered by item id and item name, returns null of not present
     public ItemStatistics getItemStatistics(String id, String name) {
         if (id.equalsIgnoreCase("enchanted_book")) return null;
 
@@ -46,6 +48,7 @@ public class ApiInteraction {
         return itemStatistics;
     }
 
+    //try to get a certain itemStatistics using the item id, returns null if not present
     public ItemStatistics getItemStatisticsFromId(String minecraft_name) {
         for (ItemStatistics itemStatistics : getItemStatistics(false)) {
             if (itemStatistics.getMinecraft_name().equalsIgnoreCase(minecraft_name)) return itemStatistics;
@@ -53,6 +56,7 @@ public class ApiInteraction {
         return null;
     }
 
+    //try to get a certain itemStatistics using the item name, returns null if not present
     public ItemStatistics getItemStatisticsFromName(String friendly_name) {
         for (ItemStatistics itemStatistics : getItemStatistics(false)) {
             if (itemStatistics.getFriendly_name().equalsIgnoreCase(friendly_name)) return itemStatistics;
@@ -60,6 +64,7 @@ public class ApiInteraction {
         return null;
     }
 
+    //request a price change, returns the success/error message provided by the api
     public String requestPriceChange(int id, double price_min, double price_max) {
         try {
             String urlString = "https://sbpreise.de/api/insert.php?id=" + id + "&price_min=" + price_min + "&price_max=" + price_max;
