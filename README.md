@@ -1,6 +1,6 @@
 # Sbpreise-1.19.x
 
-This mod is an implementation of sbpreise.de inside your minecraft client. The data is directly fetched from their website.
+This mod is an implementation of sbpreise.de inside your minecraft client (fabric). The data is directly fetched from their website.
 
 ## What does this mod?
 
