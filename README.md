@@ -5,7 +5,7 @@ This mod is an implementation of sbpreise.de inside your minecraft client (fabri
 ## What does this mod?
 
 The mod adds a tooltip to the items in your inventory showing their current price.
-Also, there is an implementation of the website using a GUI which can be opened by pressing the key bind J. This can easily be changed inside your minecraft settings. You can directly suggest a new price for an item via the GUI too.
+Also, there is an implementation of the website using a GUI which can be opened by pressing the key bind `J`. This can easily be changed inside your minecraft settings. You can directly suggest a new price for an item via the GUI too.
 
 ## Screenshots
 
