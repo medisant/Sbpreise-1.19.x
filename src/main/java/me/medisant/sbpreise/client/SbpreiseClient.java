@@ -14,6 +14,9 @@ import org.lwjgl.glfw.GLFW;
 
 @Environment(EnvType.CLIENT)
 public class SbpreiseClient implements ClientModInitializer {
+
+    public static boolean isOnSkyblock = false;
+
     @Override
     public void onInitializeClient() {
         registerKeyBindings();

@@ -10,6 +10,7 @@
   "text.autoconfig.sbpreise.option.absoluteWidth": "static gui width",
   "text.autoconfig.sbpreise.option.absoluteHeigth": "static gui heigth",
   "text.autoconfig.sbpreise.option.useAbsoluteGuiSize": "use a static gui size",
+  "text.autoconfig.sbpreise.option.onlySkyblock": "show tooltip only on skyblock (may cause errors)",
   "text.gui.button.request_change": "request price change",
   "text.gui.button.back": "back",
   "text.gui.title.request_change": "request price change - %s",

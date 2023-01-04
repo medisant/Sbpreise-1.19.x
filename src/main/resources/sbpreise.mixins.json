@@ -6,7 +6,8 @@
   "mixins": [
   ],
   "client": [
-    "MixinItemStack"
+    "MixinItemStack",
+    "MixinPlayerListHud"
   ],
   "injectors": {
     "defaultRequire": 1

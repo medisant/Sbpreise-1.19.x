@@ -18,6 +18,7 @@ public class ModConfig implements ConfigData {
     public int absoluteWidth = 38; //only active if useAbsolutGuiSize = true
     public int absoluteHeigth = 21; //only active if useAbsolutGuiSize = true
     public boolean useAbsoluteGuiSize = false;
+    public boolean onlySkyblock = true;
 
     public static void init() {
         AutoConfig.register(ModConfig.class, GsonConfigSerializer::new);

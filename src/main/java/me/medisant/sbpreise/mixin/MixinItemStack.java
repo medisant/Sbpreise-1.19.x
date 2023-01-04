@@ -2,6 +2,8 @@ package me.medisant.sbpreise.mixin;
 
 import me.medisant.sbpreise.api.ApiInteraction;
 import me.medisant.sbpreise.api.ItemStatistics;
+import me.medisant.sbpreise.client.SbpreiseClient;
+import me.medisant.sbpreise.config.ModConfig;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.entity.player.PlayerEntity;
@@ -36,7 +38,11 @@ public abstract class MixinItemStack {
     @Inject(method = "getTooltip", at = @At(value = "RETURN"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void getToolTip(PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir, List<Text> list) {
         try {
-            if (!this.isEmpty()) { //checks if the itemStack is an item
+            //if should only shown on skyblock (config) and the tablist contains "Skyblock", true
+            //if config = false, true
+            boolean addTooltip = !ModConfig.INSTANCE.onlySkyblock || SbpreiseClient.isOnSkyblock;
+
+            if (!this.isEmpty() && addTooltip) { //checks if the itemStack is an item and it should be added
 
                 String itemName = this.getName().getString(); //name of the item
                 String id = this.getItem().toString(); //id of the item
